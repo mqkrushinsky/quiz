@@ -1,0 +1,27 @@
+﻿CREATE TABLE `questions` (
+  `QuestionId` int(11) NOT NULL AUTO_INCREMENT,
+  `QuestionText` varchar(5000) NOT NULL,
+  `CategoryId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`QuestionId`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `answers` (
+  `QuestionId` int(11) NOT NULL,
+  `AnswerId` int(11) NOT NULL,
+  `AnswerText` varchar(5000) NOT NULL,
+  `CaseSensitive` bit(1) NOT NULL DEFAULT b'0',
+  PRIMARY KEY (`QuestionId`,`AnswerId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `categories` (
+  `CategoryId` int(11) NOT NULL AUTO_INCREMENT,
+  `CategoryName` varchar(500) NOT NULL,
+  PRIMARY KEY (`CategoryId`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `players` (
+  `PlayerId` int(11) NOT NULL AUTO_INCREMENT,
+  `Initials` varchar(3) NOT NULL,
+  `HighScore` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`PlayerId`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
